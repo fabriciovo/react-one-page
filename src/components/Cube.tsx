@@ -17,7 +17,7 @@ function Cube({ threeProps, image, changeSpeed }: ICube) {
   let speed = 1;
 
   useEffect(() => {
-    speed = 10;
+    speed = 20;
   }, [changeSpeed]);
 
   useFrame((state, delta) => {
@@ -36,7 +36,7 @@ function Cube({ threeProps, image, changeSpeed }: ICube) {
       {...threeProps}
       ref={ref}
       scale={1}
-      onClick={(event) => click(!clicked)}
+      onClick={(event) => {alert('asddsaasd')}}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}
     >
