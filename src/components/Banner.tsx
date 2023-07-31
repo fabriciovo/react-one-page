@@ -15,7 +15,7 @@ function Banner({ profileData }: IBannerDataProps) {
 
   function next() {
     setIndex((prev) => {
-      let value = prev + 1;
+      const value = prev + 1;
       if (value >= profileData.length) {
         prev = 0;
         return prev;
@@ -25,9 +25,12 @@ function Banner({ profileData }: IBannerDataProps) {
   }
 
   return (
-    <div className="grid md:grid-cols-2 md:grid-rows-1 grid-rows-2 w-full place-items-center">
+    <div className="grid md:grid-cols-12 md:grid-rows-1 grid-rows-2 w-full place-items-center">
+      <div className="md:col-span-8">
+        <Description descriptionView={profileData[index].descriptionView} />
+      </div>
       <div
-        className={`bg-center w-full h-screen transition-all duration-100 ease-in-out `}
+        className={`bg-center bg-cover w-full h-screen transition-all duration-100 ease-in-out md:col-span-4`}
         style={{ backgroundImage: `url(${active.image})` }}
       >
         <div className="backdrop-blur-sm h-full" onClick={() => next()}>
@@ -38,10 +41,25 @@ function Banner({ profileData }: IBannerDataProps) {
               <Cube image={active.image} changeSpeed={prevIndex !== index} />
             </Suspense>
           </Canvas>
+          <div className="absolute bottom-2 right-0 left-0 mx-auto w-full text-center">
+            <button
+              id="sButton2"
+              className=" border-white border-spacing-3 rounded-full w-4 p-2 mx-2"
+            ></button>
+            <button
+              id="sButton2"
+              className=" border-white border-spacing-3 rounded-full w-4 p-2 mx-2"
+            ></button>
+            <button
+              id="sButton2"
+              className=" border-white border-spacing-3 rounded-full w-4 p-2 mx-2"
+            ></button>
+            <button
+              id="sButton2"
+              className=" border-white border-spacing-3 rounded-full w-4 p-2 mx-2"
+            ></button>
+          </div>
         </div>
-      </div>
-      <div>
-        <Description descriptionView={profileData[index].descriptionView} />
       </div>
     </div>
   );

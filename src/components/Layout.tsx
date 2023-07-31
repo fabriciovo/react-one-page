@@ -1,27 +1,27 @@
-function Layout({ children }: any) {
+import { Link } from "react-router-dom";
+
+function Layout({ children }) {
   return (
     <>
       <header>
         <nav>
-          <div className="absolute w-1/2 top-0 left-1/2 bg-slate-900 ">
-            <a className="px-2" href="#home">
+          <div className="absolute w-full bg-slate-900 z-10">
+            <Link className="px-2" to="/">
               About Me
-            </a>
-            <a className="px-2" href="#news">
-              Projects
-            </a>
-            <a className="px-2" href="#contact">
+            </Link>
+            <Link className="px-2" to="/past-works">
+              Past Works
+            </Link>
+            <a className="px-2" href="/college">
               College Projects
             </a>
-            <a className="px-2" href="#about">
+            <a className="px-2" href="/side-projects">
               Side Projects
             </a>
           </div>
         </nav>
       </header>
-      <section>
-        {children}
-      </section>
+      <section>{children}</section>
     </>
   );
 }
